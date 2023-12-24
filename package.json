@@ -6,12 +6,26 @@
   "exports": {
     ".":  "./src/index.ts"
   },
+  "types": "./src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "imekachi",
-  "license": "ISC",
+  "license": "MIT",
+  "keywords": [
+    "typescript",
+    "ts",
+    "types",
+    "utility",
+    "util",
+    "utilities",
+    "testing",
+    "type",
+    "generics"
+  ],
+  "typesVersions": {
+    ">=5.0": { "*": ["ts5.0/*"] }
+  },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
