@@ -14,8 +14,8 @@ npm i -D typescript-codex
 
 ## Usage
 ```ts
-import { FlattenObj, NestedObj } from 'typescript-codex
-import { flatten } from flat
+import { FlattenObj, NestedObj } from 'typescript-codex'
+import { flatten } from 'flat'
 
 // An example of how to resolve tailwind config to flattened config obj
 export const resolveNestedKeys = <T extends NestedObj<string | number, string>>(obj: T) => {
