@@ -74,7 +74,7 @@ export type UnionToIntersection<U> = (
 
 export type FlattenObj<
   O,
-  Separator extends string = '-',
+  Separator extends string = '.',
   KeyPrefix extends string = '',
 > = Prettify<
   IsObjIncluded<ObjVal<O>> extends true

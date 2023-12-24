@@ -81,8 +81,8 @@ const flattenObj = {
       f: 10
     }>
     type Expected = {
-      'a-aa': 'hello'
-      'a-ab-aba': 'world'
+      'a.aa': 'hello'
+      'a.ab.aba': 'world'
       b: string[]
       c: boolean
       d: false
@@ -97,10 +97,10 @@ const flattenObj = {
       c: boolean
       d: false
       f: 10
-    }, '.'>
+    }, '-'>
     type Expected = {
-      'a.aa': 'hello'
-      'a.ab.aba': 'world'
+      'a-aa': 'hello'
+      'a-ab-aba': 'world'
       b: string[]
       c: boolean
       d: false
