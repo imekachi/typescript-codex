@@ -1,4 +1,4 @@
-import { Expect, IsEqual, JoinStr } from '.'
+import { Expect, FlattenObj, IsEqual, JoinStr } from '.'
 
 const isEqual = {
   true: () => {
@@ -36,7 +36,6 @@ const isEqual = {
     type Expected = 'no'
     type Test = Expect<IsEqual<Actual, Expected>>
   },
-
 }
 
 const joinStr = {
@@ -70,4 +69,55 @@ const joinStr = {
     type Expected = 'a---b'
     type Test = Expect<IsEqual<Actual, Expected>>
   },
+}
+
+const flattenObj = {
+  'nested object': () => {
+    type Actual = FlattenObj<{
+      a: { aa: 'hello'; ab: { aba: 'world' } }
+      b: string[]
+      c: boolean
+      d: false
+      f: 10
+    }>
+    type Expected = {
+      'a-aa': 'hello'
+      'a-ab-aba': 'world'
+      b: string[]
+      c: boolean
+      d: false
+      f: 10
+    }
+    type Test = Expect<IsEqual<Actual, Expected>>
+  },
+  'nested object with custom separator': () => {
+    type Actual = FlattenObj<{
+      a: { aa: 'hello'; ab: { aba: 'world' } }
+      b: string[]
+      c: boolean
+      d: false
+      f: 10
+    }, '.'>
+    type Expected = {
+      'a.aa': 'hello'
+      'a.ab.aba': 'world'
+      b: string[]
+      c: boolean
+      d: false
+      f: 10
+    }
+    type Test = Expect<IsEqual<Actual, Expected>>
+  },
+  'flat object': () => {
+    type TestObj = {
+      a: 'hello'
+      b: string[]
+      c: boolean
+      d: false
+      f: 10
+    }
+    type Actual = FlattenObj<TestObj>
+    type Expected = TestObj
+    type Test = Expect<IsEqual<Actual, Expected>>
+  }
 }
